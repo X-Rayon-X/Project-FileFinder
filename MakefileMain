@@ -1,0 +1,11 @@
+PROGRAM_NAME = filesearchapp
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -pthread
+LIB_PATH = .
+LIB_NAME = filesearchlib
+
+$(PROGRAM_NAME): main.cpp $(LIB_PATH)/lib$(LIB_NAME).a
+	$(CXX) $(CXXFLAGS) -o $(PROGRAM_NAME) main.cpp -L$(LIB_PATH) -l$(LIB_NAME)
+
+clean:
+	rm -f $(PROGRAM_NAME)

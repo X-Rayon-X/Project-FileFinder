@@ -1,0 +1,15 @@
+LIB_NAME = libfilesearchlib.a
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -pthread
+LIB_OBJECTS = filesearchlib.o
+
+$(LIB_NAME): $(LIB_OBJECTS)
+	ar rcs $(LIB_NAME) $(LIB_OBJECTS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(LIB_NAME) $(LIB_OBJECTS)
+
+
